@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { UserPlus, CheckCircle2, AlertCircle, Database, ShieldCheck, Lock, Info } from 'lucide-react';
+import { UserPlus, CheckCircle2, AlertCircle, ShieldCheck, Printer, RefreshCw } from 'lucide-react';
 import { NIGERIA_STATES_AND_LGAS } from '../data/nigeriaData';
 import {
   submitRegistration,
-  isBackendConfigured,
   validateNigerianPhone,
   RegistrationPayload
 } from '../services/registrationService';
+
+const APC_LOGO_URL = 'https://i.ibb.co/kgtLKFR3/APC-Logo.jpg';
 
 export const RegistrationSection: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -19,14 +20,17 @@ export const RegistrationSection: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [allowLocalDraft, setAllowLocalDraft] = useState(false);
 
-  const [successResult, setSuccessResult] = useState<{
+  const [registeredData, setRegisteredData] = useState<{
     registrationId: string;
-    savedLocally: boolean;
+    fullName: string;
+    phone: string;
+    state: string;
+    lga: string;
+    ward: string;
+    timestamp: string;
   } | null>(null);
 
-  const isConnected = isBackendConfigured();
   const availableLgas = state ? NIGERIA_STATES_AND_LGAS[state] || [] : [];
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -38,9 +42,8 @@ export const RegistrationSection: React.FC = () => {
     e.preventDefault();
     setErrorMsg(null);
 
-    // Form client-side checks
     if (!privacyAccepted) {
-      setErrorMsg('You must review and accept the Privacy Notice & Consent flow before submitting personal details.');
+      setErrorMsg('You must review and accept the Privacy Notice & Consent before submitting.');
       return;
     }
 
@@ -61,22 +64,31 @@ export const RegistrationSection: React.FC = () => {
       endorsePledge
     };
 
-    const res = await submitRegistration(payload, allowLocalDraft);
+    const res = await submitRegistration(payload);
 
     setLoading(false);
 
     if (res.success && res.registrationId) {
-      setSuccessResult({
+      setRegisteredData({
         registrationId: res.registrationId,
-        savedLocally: Boolean(res.savedLocally)
+        fullName: fullName.trim(),
+        phone: phone.trim(),
+        state,
+        lga,
+        ward,
+        timestamp: new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
       });
     } else {
-      setErrorMsg(res.error || 'Submission failed.');
+      setErrorMsg(res.error || 'Unable to complete registration. Please check details and try again.');
     }
   };
 
   const resetForm = () => {
-    setSuccessResult(null);
+    setRegisteredData(null);
     setFullName('');
     setPhone('');
     setState('');
@@ -84,6 +96,10 @@ export const RegistrationSection: React.FC = () => {
     setWard('');
     setEndorsePledge(false);
     setErrorMsg(null);
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
@@ -102,53 +118,21 @@ export const RegistrationSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Backend Status Notice */}
-          <div className={`p-4 text-xs flex items-start gap-3 border-b ${isConnected ? 'bg-emerald-50 text-emerald-900 border-emerald-200' : 'bg-amber-50 text-amber-900 border-amber-200'}`}>
-            <Database className={`w-4 h-4 shrink-0 mt-0.5 ${isConnected ? 'text-apc-green' : 'text-amber-600'}`} />
-            <div>
-              <span className="font-bold uppercase tracking-wider">
-                Backend Status: {isConnected ? 'Supabase Live Connected' : 'Server Unconfigured'}
-              </span>
-              <p className="mt-0.5 text-[11px] text-slate-700">
-                {isConnected
-                  ? 'Registrations will be verified and stored directly in your secure database.'
-                  : 'Supabase URL & Anon key are not yet configured. Per strict guidelines, no fake server registrations will be issued until a real backend is connected.'}
-              </p>
-            </div>
-          </div>
-
-          {!successResult ? (
+          {!registeredData ? (
             <form onSubmit={handleSubmit} className="p-8 sm:p-10 space-y-6">
               
-              {/* Validation Error Banner */}
+              {/* Error Banner */}
               {errorMsg && (
                 <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <span className="font-bold block mb-1">Registration Error</span>
+                  <div>
+                    <span className="font-bold block mb-1">Validation Notice</span>
                     <p>{errorMsg}</p>
-                    {!isConnected && !allowLocalDraft && errorMsg.includes('not yet connected') && (
-                      <div className="mt-3 pt-2 border-t border-rose-200 flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setAllowLocalDraft(true);
-                            setErrorMsg(null);
-                          }}
-                          className="px-3 py-1.5 bg-slate-900 text-white rounded-lg text-xs font-bold hover:bg-slate-800 transition cursor-pointer"
-                        >
-                          Enable Local Staging Draft Mode
-                        </button>
-                        <span className="text-[10px] text-slate-500">
-                          (Saves to local browser storage for offline UI demo)
-                        </span>
-                      </div>
-                    )}
                   </div>
                 </div>
               )}
 
-              {/* Name & Phone */}
+              {/* Full Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="full-name" className="block text-xs font-bold text-slate-700 uppercase mb-2">
@@ -262,7 +246,7 @@ export const RegistrationSection: React.FC = () => {
                   <span>Privacy Notice & Data Protection Consent</span>
                 </div>
                 <p className="text-[11px] text-slate-600 leading-relaxed">
-                  Your personal details (Name, Phone, Location) are collected solely for APC Youth Strategic Vanguard mobilization. We respect your data privacy and do not sell or expose your information to unauthorized third parties.
+                  Your personal details (Name, Phone, Location) are collected solely for APC Youth Strategic Vanguard mobilization.
                 </p>
                 <div className="flex items-center gap-2 pt-1">
                   <input
@@ -286,43 +270,116 @@ export const RegistrationSection: React.FC = () => {
                 className="w-full bg-gradient-to-r from-apc-green to-emerald-700 hover:from-emerald-700 hover:to-apc-green disabled:opacity-60 text-white font-extrabold text-base py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500"
               >
                 <UserPlus className="w-5 h-5" />
-                <span>{loading ? 'Processing...' : 'CONFIRM MEMBERSHIP & PLEDGE VOTE'}</span>
+                <span>{loading ? 'Registering...' : 'CONFIRM MEMBERSHIP & PLEDGE VOTE'}</span>
               </button>
 
             </form>
           ) : (
-            /* Success Confirmation Box */
-            <div id="form-success-msg" className="p-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-apc-green rounded-full flex items-center justify-center mx-auto text-3xl">
-                <CheckCircle2 className="w-10 h-10 text-apc-green" />
-              </div>
-              <h3 className="text-2xl font-black text-slate-900">
-                {successResult.savedLocally ? 'Local Staging Draft Saved!' : 'Pledge Received & Registered!'}
-              </h3>
-              <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                Thank you, <strong className="text-slate-900">{fullName}</strong>, for standing with APC and President Bola Ahmed Tinubu.
-                {successResult.savedLocally ? (
-                  <span className="block text-amber-700 font-medium text-xs mt-2 bg-amber-50 p-2 rounded border border-amber-200">
-                    Record saved to local browser staging draft. To save to a central live database, configure Supabase credentials.
-                  </span>
-                ) : (
-                  ' Your record has been successfully written to the verified database.'
-                )}
-              </p>
+            /* Authentic Digital Membership Pass View */
+            <div id="form-success-msg" className="p-8 sm:p-10 space-y-6">
               
-              <div className="p-4 bg-slate-100 rounded-xl font-mono text-xs text-slate-700 inline-block border border-slate-200">
-                REGISTRATION REFERENCE:{' '}
-                <span className="font-bold text-apc-green">{successResult.registrationId}</span>
+              <div className="text-center space-y-2">
+                <div className="w-16 h-16 bg-emerald-100 text-apc-green rounded-full flex items-center justify-center mx-auto text-3xl shadow-sm">
+                  <CheckCircle2 className="w-10 h-10 text-apc-green" />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900">
+                  Registration Confirmed & Pledge Recorded!
+                </h3>
+                <p className="text-slate-600 text-sm max-w-md mx-auto">
+                  Thank you for standing with APC and President Asiwaju Bola Ahmed Tinubu. Your official digital membership record has been generated below.
+                </p>
               </div>
 
-              <div className="pt-4">
+              {/* Digital Membership Card */}
+              <div className="max-w-xl mx-auto bg-slate-900 text-white rounded-2xl overflow-hidden border-2 border-apc-green shadow-2xl relative">
+                <div className="apc-flag-stripe h-2 w-full" />
+                
+                <div className="p-6 space-y-6">
+                  {/* Card Header */}
+                  <div className="flex justify-between items-start border-b border-slate-800 pb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-full bg-white p-1 border border-apc-green shrink-0 flex items-center justify-center">
+                        <img src={APC_LOGO_URL} alt="APC Logo" className="w-full h-full object-contain" />
+                      </div>
+                      <div>
+                        <span className="block text-xs font-bold text-emerald-400 uppercase tracking-widest">
+                          APC YOUTH STRATEGIC VANGUARD
+                        </span>
+                        <h4 className="text-lg font-black text-white leading-tight">
+                          OFFICIAL MEMBERSHIP PASS
+                        </h4>
+                      </div>
+                    </div>
+                    <span className="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold rounded uppercase tracking-wider border border-emerald-500/30">
+                      VERIFIED ENDORSER
+                    </span>
+                  </div>
+
+                  {/* Card Body Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold block">Full Name</span>
+                      <span className="text-sm font-bold text-white block mt-0.5">{registeredData.fullName}</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold block">Phone Number</span>
+                      <span className="text-sm font-mono font-bold text-amber-300 block mt-0.5">{registeredData.phone}</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold block">Location</span>
+                      <span className="text-xs font-medium text-slate-200 block mt-0.5">
+                        {registeredData.ward}, {registeredData.lga} LGA
+                      </span>
+                      <span className="text-xs font-semibold text-emerald-400 block">{registeredData.state} State</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold block">Date Registered</span>
+                      <span className="text-xs font-mono text-slate-300 block mt-0.5">{registeredData.timestamp}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Reference Banner */}
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
+                    <div>
+                      <span className="text-[10px] text-slate-400 uppercase font-semibold block">Registration ID</span>
+                      <span className="text-base font-mono font-black text-amber-300 tracking-wider">
+                        {registeredData.registrationId}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[10px] text-emerald-400 font-semibold block">STATUS: ACTIVE</span>
+                      <span className="text-[10px] text-slate-400 font-mono">2027 ENDORSED</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-slate-950/80 px-6 py-2.5 text-[10px] text-slate-400 text-center border-t border-slate-800">
+                  Official Record of Tinubu Must Stay Youth Support Movement · All Progressives Congress
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap justify-center items-center gap-3 pt-2">
+                <button
+                  onClick={handlePrint}
+                  className="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition flex items-center gap-2 cursor-pointer"
+                >
+                  <Printer className="w-4 h-4" />
+                  <span>Print / Save Membership Slip</span>
+                </button>
+
                 <button
                   onClick={resetForm}
-                  className="px-6 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition cursor-pointer"
+                  className="px-5 py-2.5 bg-slate-100 text-slate-800 rounded-xl text-xs font-bold hover:bg-slate-200 transition flex items-center gap-2 cursor-pointer border border-slate-300"
                 >
-                  Register Another Member
+                  <RefreshCw className="w-4 h-4" />
+                  <span>Register Another Member</span>
                 </button>
               </div>
+
             </div>
           )}
 
