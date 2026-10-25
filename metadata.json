@@ -1,0 +1,6 @@
+{
+  "name": "Tinubu Must Stay",
+  "description": "APC Youth Strategic Vanguard - Official Grassroots Youth Movement for President Asiwaju Bola Ahmed Tinubu (GCFR).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

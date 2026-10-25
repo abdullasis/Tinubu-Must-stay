@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinubu Must Stay | Official APC Youth Movement</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apc: {
+                            green: '#008751',
+                            blue: '#00A3E0',
+                            red: '#E4002B',
+                            darkGreen: '#005c37',
+                            gold: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .apc-gradient {
+            background: linear-gradient(135deg, #008751 0%, #005c37 50%, #00331e 100%);
+        }
+        .apc-flag-stripe {
+            background: linear-gradient(90deg, #008751 0% 33%, #FFFFFF 33% 34%, #00A3E0 34% 66%, #E4002B 66% 100%);
+        }
+        .hero-pattern {
+            background-color: #00331e;
+            background-image: radial-gradient(rgba(0, 163, 224, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .pulse-live {
+            box-shadow: 0 0 0 0 rgba(0, 135, 81, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 135, 81, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(0, 135, 81, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 135, 81, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-apc-green selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="apc-flag-stripe h-2.5 w-full"></div>
+    <div class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="font-medium text-emerald-300">LIVE MOBILIZATION COUNTER:</span>
+                <span class="font-bold tracking-wider text-amber-300" id="live-top-counter">263,084</span>
+                <span class="hidden sm:inline text-slate-400">Registered Youth Voters Nationwide</span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs">
+                <span class="text-slate-300"><i class="fas font-semibold fa-flag text-apc-blue mr-1"></i> Official APC Support Movement</span>
+                <a href="#register" class="bg-apc-green hover:bg-emerald-600 text-white px-2.5 py-1 rounded text-xs transition font-semibold">Join Movement</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Movement Title -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-full border-2 border-apc-green p-0.5 bg-white shadow-sm flex items-center justify-center overflow-hidden">
+                        <!-- APC Emblem SVG -->
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#008751" stroke-width="3"/>
+                            <path d="M 15,50 A 35,35 0 0,1 50,15 L 50,85 A 35,35 0 0,1 15,50 Z" fill="#008751"/>
+                            <path d="M 50,15 A 35,35 0 0,1 85,50 A 35,35 0 0,1 50,85 Z" fill="#00A3E0"/>
+                            <rect x="15" y="65" width="70" height="20" fill="#E4002B"/>
+                            <text x="50" y="79" font-family="Arial" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle">APC</text>
+                            <circle cx="50" cy="40" r="14" fill="#ffffff"/>
+                            <path d="M 46,28 L 54,28 L 52,48 L 48,48 Z" fill="#D4AF37"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-black tracking-tight text-slate-900 group-hover:text-apc-green transition">
+                            TINUBU MUST STAY
+                        </span>
+                        <span class="block text-xs font-bold text-apc-green tracking-widest uppercase">
+                            APC Youth Strategic Vanguard
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="#hero" class="hover:text-apc-green transition">Home</a>
+                    <a href="#patron" class="hover:text-apc-green transition">Grand Patron</a>
+                    <a href="#mandate" class="hover:text-apc-green transition">Youth Mandate</a>
+                    <a href="#structure" class="hover:text-apc-green transition">Grassroots Structure</a>
+                    <a href="#register" class="hover:text-apc-green transition">Register</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="#endorse" class="bg-gradient-to-r from-apc-green to-emerald-700 hover:from-emerald-700 hover:to-apc-green text-white px-5 py-2.5 rounded-xl font-bold shadow-md shadow-emerald-900/10 transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                        <i class="fas fa-check-circle text-amber-300"></i> Endorse 2027
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-700 hover:text-apc-green focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 text-slate-800 font-medium hover:text-apc-green">Home</a>
+            <a href="#patron" class="block py-2 text-slate-800 font-medium hover:text-apc-green">Grand Patron & Leadership</a>
+            <a href="#mandate" class="block py-2 text-slate-800 font-medium hover:text-apc-green">Youth Mandate</a>
+            <a href="#structure" class="block py-2 text-slate-800 font-medium hover:text-apc-green">Grassroots Network</a>
+            <a href="#register" class="block py-2 text-slate-800 font-medium hover:text-apc-green">Registration</a>
+            <a href="#endorse" class="block py-2.5 text-center bg-apc-green text-white font-bold rounded-lg">Pledge Youth Vote</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION with Featured Leaders -->
+    <section id="hero" class="hero-pattern relative text-white pt-12 pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Hero Header Banner -->
+            <div class="text-center max-w-4xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-emerald-300 text-xs sm:text-sm font-semibold mb-4 backdrop-blur-md">
+                    <i class="fas fa-users-gear text-amber-400"></i> Consolidated Grassroots Youth Alliance for APC
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4">
+                    TINUBU MUST STAY
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-300 font-light max-w-3xl mx-auto">
+                    Nigerian Youths Stand Firmly for Continuity, Renewal, and Sustainable Development under the Leadership of His Excellency <span class="text-emerald-400 font-semibold">Bola Ahmed Tinubu (GCFR)</span>.
+                </p>
+            </div>
+
+            <!-- FIRST THING PEOPLE SEE: Leadership Showcase Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
+                
+                <!-- CARD 1: PRESIDENT BOLA AHMED TINUBU (GCFR) -->
+                <div class="glass-card rounded-2xl overflow-hidden shadow-2xl text-slate-900 flex flex-col transform transition hover:scale-[1.01]">
+                    <div class="bg-gradient-to-r from-emerald-800 to-apc-green p-4 text-white text-center border-b border-emerald-600/30">
+                        <span class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">President & Commander-in-Chief</span>
+                        <h2 class="text-xl font-bold">His Excellency</h2>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col md:flex-row items-center gap-6 flex-grow bg-white">
+                        <div class="relative group flex-shrink-0">
+                            <div class="w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-4 border-apc-green shadow-xl bg-slate-100 flex items-center justify-center">
+                                <img src="image_2.p" 
+                                     alt="His Excellency President Bola Ahmed Tinubu (GCFR)" 
+                                     class="w-full h-full object-cover object-top"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/008751/FFFFFF?text=President+Bola+Ahmed+Tinubu';" />
+                            </div>
+                            <div class="absolute -bottom-3 -right-3 bg-amber-400 text-slate-900 p-2 rounded-full shadow-lg border-2 border-white">
+                                <i class="fas fa-certificate text-lg"></i>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow text-center md:text-left space-y-3">
+                            <span class="inline-block px-3 py-1 bg-emerald-100 text-apc-green font-bold text-xs rounded-full">
+                                GRAND COMMANDER OF THE FEDERAL REPUBLIC
+                            </span>
+                            <h3 class="text-2xl font-black text-slate-900 leading-snug">
+                                ASIWAJU BOLA AHMED TINUBU <span class="text-sm font-semibold text-slate-500">(GCFR)</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                President, Commander-in-Chief of the Armed Forces, Federal Republic of Nigeria. Champion of the Renewed Hope Agenda and Economic Transformation.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-2 justify-center md:justify-start">
+                                <span class="text-xs bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md font-medium"><i class="fas fa-check text-apc-green mr-1"></i> 2nd Term Youth Endorsement</span>
+                                <span class="text-xs bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md font-medium"><i class="fas fa-check text-apc-green mr-1"></i> Renewed Hope</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 border-t border-slate-100 px-6 py-3 flex justify-between items-center text-xs font-semibold text-slate-500">
+                        <span><i class="fas fa-shield-alt text-apc-blue mr-1"></i> National Leadership</span>
+                        <span class="text-apc-green font-bold">2027 Mobilization Ready</span>
+                    </div>
+                </div>
+
+                <!-- CARD 2: ALHAJI IBRAHIM KABIR MASARI (GRAND PATRON) -->
+                <div class="glass-card rounded-2xl overflow-hidden shadow-2xl text-slate-900 flex flex-col transform transition hover:scale-[1.01]">
+                    <div class="bg-gradient-to-r from-apc-blue to-cyan-700 p-4 text-white text-center border-b border-cyan-500/30">
+                        <span class="text-xs font-extrabold tracking-widest text-amber-300 uppercase">Movement Grand Patron</span>
+                        <h2 class="text-xl font-bold">Special Adviser to the President</h2>
+                    </div>
+
+                    <div class="p-6 flex flex-col md:flex-row items-center gap-6 flex-grow bg-white">
+                        <div class="relative group flex-shrink-0">
+                            <div class="w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-4 border-apc-blue shadow-xl bg-slate-100 flex items-center justify-center">
+                                <img src="image.png" 
+                                     alt="Alhaji Ibrahim Kabir Masari" 
+                                     class="w-full h-full object-cover object-top"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/00A3E0/FFFFFF?text=Alhaji+Ibrahim+Kabir+Masari';" />
+                            </div>
+                            <div class="absolute -bottom-3 -right-3 bg-apc-blue text-white p-2 rounded-full shadow-lg border-2 border-white">
+                                <i class="fas fa-star text-lg"></i>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow text-center md:text-left space-y-3">
+                            <span class="inline-block px-3 py-1 bg-cyan-100 text-cyan-800 font-bold text-xs rounded-full">
+                                GRAND PATRON OF THE MOVEMENT
+                            </span>
+                            <h3 class="text-2xl font-black text-slate-900 leading-snug">
+                                ALHAJI IBRAHIM KABIR MASARI
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Special Adviser to the President on Political and Other Matters. Visionary Leader and National Anchor for Grassroots Youth Integration.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-2 justify-center md:justify-start">
+                                <span class="text-xs bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md font-medium"><i class="fas fa-check text-apc-blue mr-1"></i> Political Mentorship</span>
+                                <span class="text-xs bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md font-medium"><i class="fas fa-check text-apc-blue mr-1"></i> Grassroots Mobilizer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 border-t border-slate-100 px-6 py-3 flex justify-between items-center text-xs font-semibold text-slate-500">
+                        <span><i class="fas fa-user-tie text-apc-green mr-1"></i> Patronage & Oversight</span>
+                        <span class="text-apc-blue font-bold">Patron, Tinubu Must Stay</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- APC Loyalty Pledge Banner -->
+            <div class="mt-12 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 max-w-4xl mx-auto text-center flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-16 h-16 rounded-xl bg-white p-2 flex-shrink-0 flex items-center justify-center shadow-lg">
+                        <img src="image_3.png" alt="APC Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/E4002B/FFFFFF?text=APC';" />
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Unwavering Loyalty to All Progressives Congress (APC)</h4>
+                        <p class="text-xs text-slate-300">The youth of Nigeria are united, prepared, and fully resolved to re-elect President Asiwaju Bola Ahmed Tinubu for a second term.</p>
+                    </div>
+                </div>
+                <a href="#register" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3 rounded-xl transition text-sm flex-shrink-0 shadow-lg">
+                    REGISTER NOW <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE METRICS COUNTER SECTION -->
+    <section class="py-12 bg-slate-900 text-white relative border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">REAL-TIME GRASSROOTS REPOSITORY</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Our Consolidated Nationwide Strength</h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                
+                <!-- Stat 1: States -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 shadow-inner">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-white tracking-tight" id="stat-states">37</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-400 mt-1">States & FCT Covered</div>
+                    <div class="text-[10px] text-emerald-400 font-mono mt-2">100% NATIONWIDE REACH</div>
+                </div>
+
+                <!-- Stat 2: LGAs -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 shadow-inner">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-blue-500/20 text-apc-blue flex items-center justify-center text-xl">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-white tracking-tight" id="stat-lgas">774</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-400 mt-1">Local Governments</div>
+                    <div class="text-[10px] text-apc-blue font-mono mt-2">ACTIVE COORDINATORS</div>
+                </div>
+
+                <!-- Stat 3: Wards -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 shadow-inner">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-white tracking-tight" id="stat-wards">8,820</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-400 mt-1">Political Wards</div>
+                    <div class="text-[10px] text-amber-400 font-mono mt-2">WARD COMMANDERS</div>
+                </div>
+
+                <!-- Stat 4: Live Members -->
+                <div class="bg-gradient-to-br from-emerald-950 to-slate-800 p-6 rounded-2xl border border-emerald-500/40 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-2 right-2 flex items-center space-x-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-[10px] text-emerald-300 font-bold uppercase">LIVE</span>
+                    </div>
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-emerald-500/30 text-emerald-300 flex items-center justify-center text-xl">
+                        <i class="fas fa-users-viewfinder"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-amber-300 tracking-tight" id="stat-members">263,084</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-300 mt-1">Verified Live Members</div>
+                    <div class="text-[10px] text-emerald-300 font-mono mt-2">GROWING IN REAL-TIME</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PATRON & LEADERSHIP DETAILED SECTION -->
+    <section id="patron" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 rounded-full bg-apc-blue/10 text-apc-blue text-xs font-bold uppercase tracking-widest">Patronage & Vision</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Under the Guidance of Strategic Leadership</h2>
+                <p class="text-slate-600 mt-3">Anchored by seasoned statesman Alhaji Ibrahim Kabir Masari, championing youth inclusion and political continuity.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200/80 grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <div class="lg:col-span-5 bg-slate-900 text-white relative min-h-[350px]">
+                    <img src="image.png" alt="Alhaji Ibrahim Kabir Masari" class="w-full h-full object-cover object-top opacity-90" onerror="this.onerror=null; this.src='https://placehold.co/600x700/00A3E0/FFFFFF?text=Alhaji+Ibrahim+Kabir+Masari';" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="bg-amber-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Grand Patron</span>
+                        <h3 class="text-2xl font-black text-white">Alhaji Ibrahim Kabir Masari</h3>
+                        <p class="text-xs text-slate-300">Special Adviser to the President on Political & Other Matters</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center space-y-6">
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold text-slate-900">The Strategic Engine for APC Youth Mobilization</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            As Grand Patron of the <strong class="text-slate-900">Tinubu Must Stay</strong> movement, Alhaji Ibrahim Kabir Masari provides vital strategic direction, ensuring Nigerian youths across all 36 States, the FCT, 774 LGAs, and 8,820 Wards are organized, empowered, and mobilized to safeguard democratic stability and political continuity.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                            <div class="p-2.5 bg-emerald-100 text-apc-green rounded-lg"><i class="fas fa-bullhorn text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Grassroots Outreach</h4>
+                                <p class="text-xs text-slate-500">Structured ward-by-ward youth alignment.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                            <div class="p-2.5 bg-blue-100 text-apc-blue rounded-lg"><i class="fas fa-handshake text-lg"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Political Mentorship</h4>
+                                <p class="text-xs text-slate-500">Bridging federal governance with youth action.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <blockquote class="p-4 rounded-xl bg-amber-50 border-l-4 border-amber-400 text-xs italic text-slate-700">
+                        "The future of Nigeria rests upon the active participation and unwavering resolve of our youth. President Asiwaju Bola Ahmed Tinubu's vision requires sustained commitment to deliver full transformation."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOVEMENT MANDATE SECTION -->
+    <section id="mandate" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 rounded-full bg-apc-green/10 text-apc-green text-xs font-bold uppercase tracking-widest">Pillars of the Movement</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Why Nigerian Youths Stand With Asiwaju Bola Ahmed Tinubu</h2>
+                <p class="text-slate-600 mt-3">We stand firmly with APC because performance, courage, and vision deserve second-term continuity.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/70 hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl mb-6 shadow-md shadow-emerald-600/20">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Youth Empowerment & Student Loans</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Implementation of the Nigerian Student Loan Scheme (NELFUND) providing tuition-free higher education for millions of young Nigerians across the federation.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/70 hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-apc-blue text-white flex items-center justify-center text-2xl mb-6 shadow-md shadow-blue-600/20">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">3MTT & Digital Economy</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Training 3 million technical talents and creating tech-driven jobs, empowering the youth to lead Africa’s digital economy revolution under APC.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/70 hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-apc-red text-white flex items-center justify-center text-2xl mb-6 shadow-md shadow-red-600/20">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Economic Reform & Infrastructure</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Bold fiscal reforms, infrastructure developments, and direct youth inclusion in cabinet decisions positioning Nigeria for long-term prosperity.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE NATIONWIDE STRUCTURE EXPLORER -->
+    <section id="structure" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest">Grassroots Footprint</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">37 States, 774 LGAs, 8,820 Wards</h2>
+                <p class="text-slate-400 mt-2 text-sm">Explore our structured organizational presence down to your local polling unit.</p>
+            </div>
+
+            <div class="bg-slate-800/90 rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-2xl max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Select State</label>
+                        <select id="state-select" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-apc-green">
+                            <option value="">-- Choose State --</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Select Local Government (LGA)</label>
+                        <select id="lga-select" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-apc-green" disabled>
+                            <option value="">-- Choose LGA --</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Ward Mobilization Status</label>
+                        <button id="search-ward-btn" class="w-full bg-apc-green hover:bg-emerald-600 text-white font-bold rounded-xl py-3 text-sm transition">
+                            <i class="fas fa-search mr-2"></i> Verify Structure
+                        </button>
+                    </div>
+                </div>
+
+                <div id="structure-result" class="bg-slate-950/80 rounded-xl p-6 border border-slate-800 text-center">
+                    <i class="fas fa-network-wired text-3xl text-slate-600 mb-2"></i>
+                    <p class="text-slate-400 text-sm">Select a State and LGA above to view the active ward commanders and youth voting readiness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE REGISTRATION & VOTE ENDORSEMENT FORM -->
+    <section id="register" class="py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-apc-green via-emerald-800 to-slate-900 p-8 text-white text-center relative">
+                    <div class="absolute top-4 right-4 bg-amber-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase">
+                        APC Youth Movement
+                    </div>
+                    <h2 class="text-3xl font-black">Register & Join 263,084+ Live Members</h2>
+                    <p class="text-emerald-100 text-sm mt-2">Stand to be counted as part of the youth majority ready to re-elect President Bola Ahmed Tinubu.</p>
+                </div>
+
+                <form id="member-reg-form" class="p-8 sm:p-10 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Full Name *</label>
+                            <input type="text" required placeholder="e.g. Ibrahim Abubakar" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-apc-green focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Phone Number *</label>
+                            <input type="tel" required placeholder="08012345678" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-apc-green focus:outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">State *</label>
+                            <select required id="reg-state" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-apc-green focus:outline-none text-sm">
+                                <option value="">Select State</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">LGA *</label>
+                            <input type="text" required placeholder="Enter your LGA" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-apc-green focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Ward *</label>
+                            <input type="text" required placeholder="Enter Ward" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-apc-green focus:outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div id="endorse" class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-start gap-3">
+                        <input type="checkbox" id="endorse-check" required class="mt-1 w-5 h-5 text-apc-green rounded focus:ring-apc-green border-slate-300">
+                        <label for="endorse-check" class="text-xs text-slate-700 leading-relaxed font-medium">
+                            I solemnly pledge as a young Nigerian citizen to endorse, support, and vote for His Excellency, <strong class="text-slate-900">President Asiwaju Bola Ahmed Tinubu (GCFR)</strong> under the banner of the <strong class="text-apc-green">All Progressives Congress (APC)</strong> for a second term.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-apc-green to-emerald-700 hover:from-emerald-700 hover:to-apc-green text-white font-extrabold text-base py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <i class="fas fa-user-plus"></i> CONFIRM MEMBERSHIP & PLEDGE VOTE
+                    </button>
+                </form>
+
+                <!-- Success Confirmation Message Box -->
+                <div id="form-success-msg" class="hidden p-8 text-center space-y-4">
+                    <div class="w-16 h-16 bg-emerald-100 text-apc-green rounded-full flex items-center justify-center mx-auto text-3xl">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900">Pledge Received & Registered!</h3>
+                    <p class="text-slate-600 text-sm max-w-md mx-auto">
+                        Thank you for standing with APC and President Bola Ahmed Tinubu. You are now officially recorded in our live grassroots youth database.
+                    </p>
+                    <div class="p-4 bg-slate-100 rounded-xl font-mono text-xs text-slate-700 inline-block">
+                        REGISTRATION ID: <span class="font-bold text-apc-green" id="reg-id-display">TMS-2027-0000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full border border-apc-green bg-white p-1 flex items-center justify-center">
+                            <span class="font-black text-apc-green text-xs">APC</span>
+                        </div>
+                        <span class="text-lg font-black text-white">TINUBU MUST STAY</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                        Official Grassroots Youth Support Movement for President Bola Ahmed Tinubu (GCFR). Operating under the patronage of Alhaji Ibrahim Kabir Masari across all 36 States, FCT, 774 LGAs, and 8,820 Wards.
+                    </p>
+                    <div class="flex items-center space-x-3 text-sm">
+                        <span class="text-xs font-semibold text-slate-500">Party Alignment:</span>
+                        <span class="px-2.5 py-1 bg-emerald-950 text-emerald-400 rounded text-xs font-bold border border-emerald-800">All Progressives Congress (APC)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#hero" class="hover:text-emerald-400">Leadership Profiles</a></li>
+                        <li><a href="#patron" class="hover:text-emerald-400">Grand Patron Desk</a></li>
+                        <li><a href="#mandate" class="hover:text-emerald-400">Youth Mandate</a></li>
+                        <li><a href="#structure" class="hover:text-emerald-400">Ward Directory</a></li>
+                        <li><a href="#register" class="hover:text-emerald-400">Join Movement</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Grassroots Statistics</h4>
+                    <ul class="space-y-2 text-xs text-slate-400 font-mono">
+                        <li>States: <span class="text-white">37</span></li>
+                        <li>LGAs: <span class="text-white">774</span></li>
+                        <li>Wards: <span class="text-white">8,820</span></li>
+                        <li>Live Members: <span class="text-amber-300 font-bold" id="footer-counter">263,084</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Tinubu Must Stay Movement. All Rights Reserved. Prepared for the Advancement of Progress and National Development under APC.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT & DATA CONTROLLER -->
+    <script>
+        // Data for Nigerian States & sample LGAs
+        const nigeriaData = {
+            "Abia": ["Aba North", "Aba South", "Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isiala Ngwa South", "Isuikwuato", "Obi Ngwa", "Ohafia", "Osisioma", "Ugwunagbo", "Ukwa East", "Ukwa West", "Umuahia North", "Umuahia South", "Umu Nneochi"],
+            "Adamawa": ["Demsa", "Fufure", "Ganye", "Gayuk", "Gombi", "Grie", "Hong", "Jada", "Lamurde", "Madagali", "Maiha", "Mayo Belwa", "Michika", "Mubi North", "Mubi South", "Numan", "Shelleng", "Song", "Toungo", "Yola North", "Yola South"],
+            "Akwa Ibom": ["Abak", "Eastern Obolo", "Eket", "Esit Eket", "Essien Udim", "Etim Ekpo", "Etinan", "Ibeno", "Ibesikpo Asutan", "Ibiono-Ibom", "Ika", "Ikono", "Ikot Abasi", "Ikot Ekpene", "Ini", "Itu", "Mbo", "Mkpat-Enin", "Nsit-Atai", "Nsit-Ibom", "Nsit-Ubium", "Obot Akara", "Okobo", "Onna", "Oron", "Oruk Anam", "Udung-Uko", "Uruan", "Urue-Offong/Oruko", "Uyo"],
+            "Anambra": ["Aguata", "Anambra East", "Anambra West", "Anaocha", "Awka North", "Awka South", "Ayamelum", "Dunukofia", "Ekwusigo", "Idemili North", "Idemili South", "Ihiala", "Nnjikoka", "Nnewi North", "Nnewi South", "Ogbaru", "Onitsha North", "Onitsha South", "Orumba North", "Orumba South", "Oyi"],
+            "Bauchi": ["Alkaleri", "Bauchi", "Bogoro", "Damban", "Darazo", "Dass", "Gamawa", "Ganjuwa", "Giade", "Itas/Gadau", "Jama'are", "Katagum", "Kirfi", "Misau", "Ningi", "Shira", "Tafawa Balewa", "Toro", "Warji", "Zaki"],
+            "Bayelsa": ["Brass", "Ekeremor", "Kolokuma/Opokuma", "Nembe", "Ogbia", "Sagbama", "Southern Ijaw", "Yenagoa"],
+            "Benue": ["Agatu", "Apa", "Ado", "Buruku", "Gboko", "Guma", "Gwer East", "Gwer West", "Katsina-Ala", "Konshisha", "Kwande", "Logo", "Makurdi", "Obi", "Ogbadibo", "Ohimini", "Oju", "Okpokwu", "Oturkpo", "Tarka", "Ukum", "Ushongo", "Vandeikya"],
+            "Borno": ["Abadam", "Askira/Uba", "Bama", "Bayo", "Biu", "Chibok", "Damboa", "Dikwa", "Gubio", "Guzamala", "Gwoza", "Hawul", "Jere", "Kaga", "Kala/Balge", "Konduga", "Kukawa", "Kwaya Kusar", "Mafa", "Magumeri", "Maiduguri", "Marte", "Mobbar", "Monguno", "Nganzai", "Shani"],
+            "Cross River": ["Abi", "Akamkpa", "Akpabuyo", "Bakassi", "Bekwarra", "Biase", "Boki", "Calabar Municipal", "Calabar South", "Etung", "Ikom", "Obanliku", "Obubra", "Obudu", "Odukpani", "Ogoja", "Yakuur", "Yala"],
+            "Delta": ["Aniocha North", "Aniocha South", "Bomadi", "Burutu", "Ethiope East", "Ethiope West", "Ika North East", "Ika South", "Isoko North", "Isoko South", "Ndokwa East", "Ndokwa West", "Okpe", "Oshimili North", "Oshimili South", "Patani", "Sapele", "Udu", "Ughelli North", "Ughelli South", "Ukwuani", "Uvwie", "Warri North", "Warri South", "Warri South West"],
+            "Ebonyi": ["Abakaliki", "Afikpo North", "Afikpo South", "Ebonyi", "Ezza North", "Ezza South", "Ikwo", "Ishielu", "Ivo", "Izzi", "Ohaozara", "Ohaukwu", "Onicha"],
+            "Edo": ["Akoko-Edo", "Egor", "Esan Central", "Esan North-East", "Esan South-East", "Esan West", "Etsako Central", "Etsako East", "Etsako West", "Igueben", "Ikpoba Okha", "Orhionmwon", "Oredo", "Ovia North-East", "Ovia South-West", "Owan East", "Owan West", "Uhunmwonde"],
+            "Ekiti": ["Ado Ekiti", "Efon", "Ekiti East", "Ekiti South-West", "Ekiti West", "Emure", "Gbonyin", "Ido Osi", "Ijero", "Ikere", "Ikole", "Ilejemeje", "Irepodun/Ifelodun", "Ise/Orun", "Moba", "Oye"],
+            "Enugu": "Aninri,Awgu,Enugu East,Enugu North,Enugu South,Ezeagu,Igbo Etiti,Igbo Eze North,Igbo Eze South,Isi Uzo,Nkanu East,Nkanu West,Nsukka,Oji River,Udenu,Udi,Uzo Uwani".split(","),
+            "FCT - Abuja": ["Abaji", "Bwari", "Gwagwalada", "Kuje", "Kwali", "Municipal Area Council"],
+            "Gombe": ["Akko", "Balanga", "Billiri", "Dukku", "Funakaye", "Gombe", "Kaltungo", "Kwami", "Nafada", "Shongom", "Yamaltu/Deba"],
+            "Imo": ["Aboh Mbaise", "Ahiazu Mbaise", "Ehime Mbano", "Ezinihitte", "Ideato North", "Ideato South", "Ihitte/Uboma", "Ikeduru", "Isiala Mbano", "Isu", "Mbaitoli", "Ngor Okpala", "Njaba", "Nkwerre", "Nwangele", "Obowo", "Oguta", "Ohaji/Egbema", "Okigwe", "Orlu", "Orsu", "Oru East", "Oru West", "Owerri Municipal", "Owerri North", "Owerri South"],
+            "Jigawa": ["Auyo", "Babura", "Biriniwa", "Birnin Kudu", "Buji", "Dutse", "Gagarawa", "Garki", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadejia", "Jahun", "Kafin Hausa", "Kaugama", "Kazaure", "Kiri Kasama", "Kiyawa", "Maigatari", "Malam Madori", "Miga", "Ringim", "Roni", "Sule Tankarkar", "Taura", "Yankwashi"],
+            "Kaduna": ["Birnin Gwari", "Chikun", "Giwa", "Igabi", "Ikara", "Jaba", "Jema'a", "Kachia", "Kaduna North", "Kaduna South", "Kagarko", "Kajuru", "Kaura", "Kauru", "Kubau", "Kudan", "Lere", "Makarfi", "Sabon Gari", "Sanga", "Soba", "Zangon Kataf", "Zaria"],
+            "Kano": ["Ajingi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Bunkure", "Dala", "Dambatta", "Dawakin Kudu", "Dawakin Tofa", "Doguwa", "Fagge", "Gabasawa", "Garko", "Garun Mallam", "Gaya", "Gezawa", "Gwale", "Gwarzo", "Kabo", "Kano Municipal", "Karaye", "Kibiya", "Kiru", "Kumbotso", "Kunchi", "Kura", "Madobi", "Makoda", "Minjibir", "Nasarawa", "Rano", "Rimin Gado", "Rogo", "Shanono", "Sumaila", "Takai", "Tarauni", "Tofa", "Tsanyawa", "Tudun Wada", "Ungogo", "Warawa", "Wudil"],
+            "Katsina": ["Bakori", "Batagarawa", "Batsari", "Baure", "Bindawa", "Charanchi", "Dandume", "Danja", "Dan Musa", "Daura", "Dutsi", "Dutsin Ma", "Faskari", "Funtua", "Ingawa", "Jibia", "Kafur", "Kaita", "Kankara", "Kankia", "Katsina", "Kurfi", "Kusada", "Mai'Adua", "Malumfashi", "Mani", "Mashi", "Matazu", "Musawa", "Rimi", "Sabuwa", "Safana", "Sandamu", "Zango"],
+            "Kebbi": ["Aleiro", "Arewa Dandi", "Argungu", "Augie", "Bagudo", "Birnin Kebbi", "Bungudu", "Dandi", "Fakai", "Gwandu", "Jega", "Kalgo", "Koko/Besse", "Maiyama", "Ngaski", "Sakaba", "Shanga", "Suru", "Danko/Wasagu", "Yauri", "Zuru"],
+            "Kogi": ["Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Ibaji", "Idah", "Igalamela Odolu", "Ijumu", "Kabba/Bunu", "Kogi", "Lokoja", "Mopa Muro", "Ofu", "Ogori/Magongo", "Okehi", "Okene", "Olamaboro", "Omala", "Yagba East", "Yagba West"],
+            "Kwara": ["Asa", "Baruten", "Edu", "Ekiti", "Ifelodun", "Ilorin East", "Ilorin South", "Ilorin West", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke Ero", "Oyun", "Pategi"],
+            "Lagos": ["Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Badagry", "Epe", "Eti Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe", "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"],
+            "Nasarawa": ["Awanga", "Awe", "Doma", "Karu", "Keana", "Keffi", "Kokona", "Lafia", "Nasarawa", "Nasarawa Egon", "Obi", "Toto", "Wamba"],
+            "Niger": ["Agaie", "Agwara", "Bida", "Borgu", "Bosso", "Chanchaga", "Edati", "Gbako", "Gurara", "Katcha", "Kontagora", "Lapai", "Lavun", "Magama", "Mariga", "Mokwa", "Moya", "Paikoro", "Rafi", "Rijau", "Shiroro", "Suleja", "Tafa", "Wushishi"],
+            "Ogun": ["Abeokuta North", "Abeokuta South", "Ado-Odo/Ota", "Egbado North", "Egbado South", "Ewekoro", "Ifo", "Ijebu East", "Ijebu North", "Ijebu North East", "Ijebu Ode", "Ikenne", "Imeko Afon", "Ipokia", "Obafemi Owode", "Odeda", "Odogbolu", "Ogun Waterside", "Remo North", "Shagamu"],
+            "Ondo": ["Akoko North-East", "Akoko North-West", "Akoko South-West", "Akoko South-East", "Akure North", "Akure South", "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Irele", "Odigbo", "Okitipupa", "Ondo East", "Ondo West", "Ose", "Owo"],
+            "Osun": ["Atakunmosa East", "Atakunmosa West", "Aiyedaade", "Aiyedire", "Boluwaduro", "Boripe", "Ede North", "Ede South", "Ife Central", "Ife East", "Ife North", "Ife South", "Egbedore", "Ejigbo", "Ifeodun", "Ilesa East", "Ilesa West", "Irepodun", "Irewole", "Isokan", "Iwo", "Obokun", "Odo Otin", "Ola Oluwa", "Olorunda", "Oriade", "Orolu", "Osogbo"],
+            "Oyo": ["Afijio", "Akinyele", "Atiba", "Atisbo", "Egbeda", "Ibadan North", "Ibadan North-East", "Ibadan North-West", "Ibadan South-East", "Ibadan South-West", "Ibarapa Central", "Ibarapa East", "Ibarapa North", "Iddo", "Irepo", "Iseyin", "Itesiwaju", "Iwajowa", "Iwajowa", "Kajola", "Lagelu", "Ogbomosho North", "Ogbomosho South", "Ogo Oluwa", "Olorunsogo", "Oluyole", "Oona Ara", "Oorelope", "Orikire", "Surulere"],
+            "Plateau": ["Barkin Ladi", "Bassa", "Bokkos", "Jos East", "Jos North", "Jos South", "Kanam", "Kanke", "Langtang South", "Langtang North", "Mangu", "Mikang", "Pankshin", "Qua'an Pan", "Riyom", "Shendam", "Wase"],
+            "Rivers": ["Abua/Odual", "Ahoada East", "Ahoada West", "Akuku-Toru", "Andoni", "Asari-Toru", "Bonny", "Degema", "Eleme", "Emuoha", "Etche", "Gokana", "Ikwerre", "Khana", "Obio/Akpor", "Ogba/Egbema/Ndoni", "Ogu/Bolo", "Okrika", "Omuma", "Opobo/Nkoro", "Oyigbo", "Port Harcourt", "Tai"],
+            "Sokoto": ["Binji", "Bodinga", "Dange Shuni", "Gada", "Goronyo", "Gudu", "Gwadabawa", "Illela", "Isa", "Kebbe", "Kware", "Rabah", "Sabon Birni", "Shagari", "Silame", "Sokoto North", "Sokoto South", "Tambuwal", "Tangaza", "Tureta", "Wamako", "Wurno", "Yabo"],
+            "Taraba": ["Ardo Kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo", "Karim Lamido", "Kumi", "Lau", "Sardauna", "Takum", "Ussa", "Wukari", "Yorro", "Zing"],
+            "Yobe": ["Bade", "Bursari", "Damaturu", "Fika", "Fune", "Geidam", "Gujba", "Gulani", "Jakusko", "Karasuwa", "Machina", "Nangere", "Nguru", "Potiskum", "Tarmuwa", "Yunusari", "Yusufari"],
+            "Zamfara": ["Anka", "Bakura", "Birnin Magaji/Kiyaw", "Bukkuyum", "Bungudu", "Gummi", "Gusau", "Kaura Namoda", "Maradun", "Maru", "Shinkafi", "Talata Mafara", "Chafe", "Zurmi"]
+        };
+
+        let liveMemberCount = 263084;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Populate States Dropdowns
+            const stateSelect = document.getElementById('state-select');
+            const regStateSelect = document.getElementById('reg-state');
+            const lgaSelect = document.getElementById('lga-select');
+
+            Object.keys(nigeriaData).forEach(state => {
+                const option1 = document.createElement('option');
+                option1.value = state;
+                option1.textContent = state;
+                stateSelect.appendChild(option1);
+
+                const option2 = document.createElement('option');
+                option2.value = state;
+                option2.textContent = state;
+                regStateSelect.appendChild(option2);
+            });
+
+            // Handle State change in Structure Explorer
+            stateSelect.addEventListener('change', function() {
+                const selectedState = this.value;
+                lgaSelect.innerHTML = '<option value="">-- Choose LGA --</option>';
+                
+                if (selectedState && nigeriaData[selectedState]) {
+                    lgaSelect.disabled = false;
+                    nigeriaData[selectedState].forEach(lga => {
+                        const opt = document.createElement('option');
+                        opt.value = lga;
+                        opt.textContent = lga;
+                        lgaSelect.appendChild(opt);
+                    });
+                } else {
+                    lgaSelect.disabled = true;
+                }
+            });
+
+            // Handle Ward Verification Search
+            document.getElementById('search-ward-btn').addEventListener('click', function() {
+                const state = stateSelect.value;
+                const lga = lgaSelect.value;
+                const resultDiv = document.getElementById('structure-result');
+
+                if(!state || !lga) {
+                    resultDiv.innerHTML = `<p class="text-amber-400 text-sm font-semibold"><i class="fas fa-exclamation-triangle mr-1"></i> Please select both a State and LGA first.</p>`;
+                    return;
+                }
+
+                const estimatedWards = Math.floor(Math.random() * 5) + 10;
+                const activeYouths = Math.floor(Math.random() * 800) + 1200;
+
+                resultDiv.innerHTML = `
+                    <div class="space-y-3 text-left">
+                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                            <span class="text-xs text-slate-400">STRUCTURE VERIFIED</span>
+                            <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] rounded font-mono font-bold">ACTIVE WARD COMMAND</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">${lga} LGA, ${state} State</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+                            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
+                                <div class="text-[10px] text-slate-400">Wards Activated</div>
+                                <div class="text-base font-bold text-amber-300">${estimatedWards} Wards</div>
+                            </div>
+                            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
+                                <div class="text-[10px] text-slate-400">Mobilized Youths</div>
+                                <div class="text-base font-bold text-emerald-400">${activeYouths.toLocaleString()} Voters</div>
+                            </div>
+                            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 col-span-2 sm:col-span-1">
+                                <div class="text-[10px] text-slate-400">APC Status</div>
+                                <div class="text-base font-bold text-apc-blue">100% Prepared</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Live Member Counter Simulation Increment
+            setInterval(() => {
+                liveMemberCount += Math.floor(Math.random() * 3) + 1;
+                const formatted = liveMemberCount.toLocaleString();
+                document.getElementById('live-top-counter').textContent = formatted;
+                document.getElementById('stat-members').textContent = formatted;
+                document.getElementById('footer-counter').textContent = formatted;
+            }, 6000);
+
+            // Handle Member Registration Submit
+            document.getElementById('member-reg-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                liveMemberCount += 1;
+                const formatted = liveMemberCount.toLocaleString();
+                document.getElementById('live-top-counter').textContent = formatted;
+                document.getElementById('stat-members').textContent = formatted;
+                document.getElementById('footer-counter').textContent = formatted;
+
+                const randomId = 'TMS-2027-' + Math.floor(1000 + Math.random() * 9000);
+                document.getElementById('reg-id-display').textContent = randomId;
+
+                this.classList.add('hidden');
+                document.getElementById('form-success-msg').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

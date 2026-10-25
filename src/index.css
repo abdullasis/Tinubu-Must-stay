@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --color-apc-green: #008751;
+  --color-apc-dark-green: #005c37;
+  --color-apc-blue: #00A3E0;
+  --color-apc-red: #E4002B;
+  --color-apc-gold: #D4AF37;
+}
+
+.apc-gradient {
+  background: linear-gradient(135deg, #008751 0%, #005c37 50%, #00331e 100%);
+}
+
+.apc-flag-stripe {
+  background: linear-gradient(90deg, #008751 0% 33%, #FFFFFF 33% 34%, #00A3E0 34% 66%, #E4002B 66% 100%);
+}
+
+.hero-pattern {
+  background-color: #00331e;
+  background-image: radial-gradient(rgba(0, 163, 224, 0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
